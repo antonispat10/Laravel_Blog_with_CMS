@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css">
+
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script‌​>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
@@ -77,26 +79,26 @@
                 <li><a href="{{ url('/') }}">Αρχική</a></li>
 
 
-            <!-- Right Side Of Navbar -->
+                <!-- Right Side Of Navbar -->
 
 
                 <!-- Blog Categories Well -->
 
 
 
-                    @foreach($categories as $index => $category)
+                @foreach($categories as $index => $category)
 
 
-                        <li class="">
-                            <a href="{{route('all_posts', $category->slug)}}">{{$category->name}}</a>
-                        </li>
+                    <li class="">
+                        <a href="{{route('all_posts', $category->slug)}}">{{$category->name}}</a>
+                    </li>
 
 
 
-                    @endforeach
+                @endforeach
 
 
-                <!-- Authentication Links -->
+            <!-- Authentication Links -->
 
                 @if (Auth::guest())
                     <li><a href="{{ url('/login') }}">Σύνδεση</a></li>
@@ -147,7 +149,7 @@
             </div>
 
             <div class="form-group" >
-            <br><br>
+                <br><br>
 
 
                 {!! Form::submit('Αποστολή', ['class'=>'btn btn-primary sub-pressed glyphicon glyphicon-search'] ) !!}
@@ -165,23 +167,23 @@
         <h4>Κατηγορίες</h4>
 
 
-            @foreach($categories as $index => $category)
+        @foreach($categories as $index => $category)
 
-                <?php if ($index % 2 == 0){ ?>
-                <li class="col-md-5 btn btn-default " style="margin-top: 20px; margin-bottom:30px;">
-                    <a href="{{route('all_posts', $category->slug)}}">{{$category->name}}</a>
-                </li>
-                <?php } ?>
-
-
-                <?php if ($index % 2 == 1){ ?>
-                <li class="col-md-5 btn btn-default" style="margin-top:20px; margin-left:20px; margin-bottom:30px;">
-                    <a href="{{route('all_posts', $category->slug)}}">{{$category->name}}</a>
-                </li>
-                <?php } ?>
+            <?php if ($index % 2 == 0){ ?>
+            <li class="col-md-5 btn btn-default " style="margin-top: 20px; margin-bottom:30px;">
+                <a href="{{route('all_posts', $category->slug)}}">{{$category->name}}</a>
+            </li>
+            <?php } ?>
 
 
-            @endforeach
+            <?php if ($index % 2 == 1){ ?>
+            <li class="col-md-5 btn btn-default" style="margin-top:20px; margin-left:20px; margin-bottom:30px;">
+                <a href="{{route('all_posts', $category->slug)}}">{{$category->name}}</a>
+            </li>
+            <?php } ?>
+
+
+        @endforeach
 
 
 
@@ -201,28 +203,28 @@
     </div>
 </div>
 
-    <!-- JavaScripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
- {{--<script src="{{ elixir('js/app.js') }}"></script> --}}
+<!-- JavaScripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+{{--<script src="{{ elixir('js/app.js') }}"></script> --}}
 
 <!-- jQuery -->
-    <script src="{{asset('js/app.js')}}"></script>
-    <script src="{{asset('js/libs/libs.js')}}"></script>
-    <script src="{{asset('js/libs/bootstrap.js')}}"></script>
-    <script src="{{asset('js/libs/jquery.js')}}"></script>
-    <script src="{{asset('js/libs/metisMenu.js')}}"></script>
-    <script src="{{asset('js/libs/sb-admin-2.js')}}"></script>
-    <script src="{{asset('js/libs/scripts.js')}}"></script>
-    <script src="{{asset('js/jq.js') }}"></script>
+<script src="{{asset('js/app.js')}}"></script>
+<script src="{{asset('js/libs/libs.js')}}"></script>
+<script src="{{asset('js/libs/bootstrap.js')}}"></script>
+<script src="{{asset('js/libs/jquery.js')}}"></script>
+<script src="{{asset('js/libs/metisMenu.js')}}"></script>
+<script src="{{asset('js/libs/sb-admin-2.js')}}"></script>
+<script src="{{asset('js/libs/scripts.js')}}"></script>
+<script src="{{asset('js/jq.js') }}"></script>
 <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 
 
 
-    <script
-            src="https://code.jquery.com/jquery-3.2.1.js"
-            integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-            crossorigin="anonymous"></script>
+<script
+        src="https://code.jquery.com/jquery-3.2.1.js"
+        integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+        crossorigin="anonymous"></script>
 
 
 </body>
