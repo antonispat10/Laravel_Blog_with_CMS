@@ -100,6 +100,33 @@ $(document).ready(function() {
 
     }
 
+    $(function() {
+
+        const mq = window.matchMedia( "(min-width: 1100px)" );
+
+        if (mq.matches) {
+
+        var $side   = $(".side"),
+            $window    = $(window),
+            offset     = $side.offset(),
+            topPadding = 15;
+
+        $window.scroll(function() {
+            if ($window.scrollTop() > offset.top) {
+                $side.stop().animate({
+                    marginTop: $window.scrollTop() - offset.top + topPadding
+                });
+            } else {
+                $side.stop().animate({
+                    marginTop: 0
+                });
+            }
+        });
+
+        }
+
+    });
+
 
 
 

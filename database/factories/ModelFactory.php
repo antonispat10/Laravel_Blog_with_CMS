@@ -22,29 +22,24 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     ];
 });
 
+
 $factory->define(App\Post::class, function (Faker\Generator $faker) {
     return [
-        'category_id' => $faker->numberBetween(1,0),
-        'photo_id' => 1,
-        'title' => $faker->sentence(7,11),
         'title' => $faker->sentence(7,11),
         'body'=> $faker->paragraphs(rand(10,15),true),
+        'photo_id' =>1,
+        'category_id' => $faker->numberBetween(1,2)
+
 //        'slug'=> $faker->slug()
 
     ];
 });
 
-$factory->define(App\Role::class, function (Faker\Generator $faker) {
-    return [
-        'name' => $faker->randomElement(['administrator','author','subscriber']),
 
-
-    ];
-});
 
 $factory->define(App\Category::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->randomElement(['PHP','Programming','Javascript']),
+        'name' => $faker->randomElement(['PHP','Javascript','Java']),
 
 
     ];
@@ -53,7 +48,7 @@ $factory->define(App\Category::class, function (Faker\Generator $faker) {
 $factory->define(App\Photo::class, function (Faker\Generator $faker) {
     return [
 
-        'file'=>'placeholder.jpg'
+        'file'=>'new_york.jpg'
 
     ];
 });

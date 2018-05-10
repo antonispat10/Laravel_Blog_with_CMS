@@ -13,21 +13,30 @@
 
 
 use App\Category;
+use App\Comment;
+use App\Post;
 
 Auth::routes();
 
 Route::get('/logout', 'Auth\LoginController@logout');
 
-Route::get('/', 'IndexController@index');
+Route::get('/', 'IndexController@index')->name('home');
 
 Route::group(['middleware'=>'admin'], function(){
 
-    Route::get('/admin', function(){
 
-        return view('admin.index');
+    Route::get('/admin' , function(){
+
+        $postsCount = Post::count();
+        $categoriesCount = Category::count();
+        $commentsCount = Comment::count();
 
 
-    });
+
+        return view('admin.index',compact('postsCount','categoriesCount','commentsCount'));
+
+
+    })->name('admin.index');
 
 
 
@@ -51,7 +60,7 @@ Route::group(['middleware'=>'admin'], function(){
     Route::resource('admin/posts', 'AdminPostsController',['names'=>[
 
         'index'=>'admin.posts.index',
-        'create'=>'admin.posts.create',
+        'create'=>'admin.posts.create2',
         'store'=>'admin.posts.store',
         'edit'=>'admin.posts.edit'
 
@@ -189,13 +198,4 @@ Route::get('/getRequest', function(){
 
 
 
-Route::post('/register', function(){
-
-   if(Request::ajax()){
-
-       return var_dump(Response::json(Request::all()));
-
-   }
-
-});
 

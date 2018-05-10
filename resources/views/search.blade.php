@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app2')
 
 
 @section('content')
@@ -7,7 +7,7 @@
 
 
 
-            <h1 class="text-center">Αποτελέσματα αναζήτησης</h1>
+            <h1 class="text-center">Search Results</h1>
     <br>
         <br>
 

@@ -12,7 +12,6 @@ class Contacto extends Model
         'surname',
         'email',
         'mobile',
-        'message',
 
     ];
 }

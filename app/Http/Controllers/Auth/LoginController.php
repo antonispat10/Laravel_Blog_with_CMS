@@ -29,7 +29,7 @@ class LoginController extends Controller
     protected function authenticated( $user)
     {
 
-        $user = User::all();
+        $user = Auth::user();
 
         if($user['role_id' == '1']) {
             return redirect('/admin');

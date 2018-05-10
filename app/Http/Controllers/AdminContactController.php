@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-//use Mail;
+use Mail;
 use App\Post;
 use App\Contacto;
 use App\Http\Requests\ContactRequest;
@@ -53,19 +53,19 @@ class AdminContactController extends Controller
         'surname',
         'email',
         'mobile',
-            'message',
 
         ];
 
-        Mail::to(config('mail.support.address'))->send(new ContactEmail($contact));
-//        Mail::send('contact', $data, function ($message) {
-//            $message->from('email', 'name');
-//
-//            $message->to('foo@example.com');
-//        });
+        Mail::send('contact', [ 'msg' =>
+            $request->mobile], function ($mail) use ($request) {
+            $mail->from($request->email,$request->name,$request->mobile);
+
+            $mail->to('antonispat10@gmail.com')->subject('Contact Message');
+        });
 
 
 
+        return redirect()->back();
 
 
 

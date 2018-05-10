@@ -50,14 +50,15 @@ class SearchController extends Controller
 
         foreach($posts as $index=> $p){
 
-            if(strpos($p->title, $input['searchable']) !==false ){
+            if(strlen($input['searchable']) >= 2){
+            if(strpos($p->title, $input['searchable']) !==false || strpos($p->title, $input['searchable']) !==false  ){
 
                 $pos = Post::find($p->id);
 
                 $post[] = $pos;
 
             }
-
+            }
 
 
 

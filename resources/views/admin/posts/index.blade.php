@@ -32,7 +32,7 @@
         <tr>
             <td>{{$post->id}}</td>
             <td><img height="50" src="{{$post->photo ? $post->photo->file : 'http://placehold.it/400x400' }}"></td>
-            <td><a href="{{route('admin.posts.edit', $post->id)}}">{{$post->user->name}}</td>
+            <td><a href="{{route('admin.posts.edit', $post->id)}}">{{$post->user ? $post->user->name : 'Post Name'}}</td>
             <td>{{$post->category ? $post->category->name : 'Uncategorizied'}}</td>
             <td>{{$post->title}}</td>
             <td>{{str_limit($post->body,30)}}</td>

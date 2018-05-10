@@ -1,5 +1,6 @@
 <?php
 
+use App\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -21,6 +22,24 @@ class DatabaseSeeder extends Seeder
 
         });
 
+        DB::table('roles')->insert([
+            'name' => 'administrator',
+
+        ]);
+        DB::table('roles')->insert([
+            'name' => 'user',
+
+        ]);
+
+        $user = new User();
+        $user->id = '12';
+        $user->name = 'Antonis';
+        $user->email = 'admin@admin.com';
+        $user->password =  bcrypt('543210');
+        $user->role_id = 1;
+        $user->is_active = 1;
+        $user->save();
+
         factory(App\Role::class, 2)->create();
 
         factory(App\Category::class, 2)->create();
@@ -28,7 +47,7 @@ class DatabaseSeeder extends Seeder
         factory(App\Photo::class, 2)->create();
 
 
-        factory(App\Post::class, 2)->create();
+        factory(App\Post::class, 15)->create();
 
         factory(App\Comment::class, 10)->create()->each(function($c){
 

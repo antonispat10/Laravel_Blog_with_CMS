@@ -115,6 +115,10 @@ class Newsletter
             'status' => 'unsubscribed',
         ]);
 
+        if (! $this->lastActionSucceeded()) {
+            return false;
+        }
+
         return $response;
     }
 

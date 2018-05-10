@@ -247,9 +247,6 @@ public function getSupportedLocales()
 
 //Should be called like this:
 {{ LaravelLocalization::getSupportedLocales() }}
-
-// To exclude current locale from returned array
-{{ LaravelLocalization::getSupportedLocales(true) }}
 ```
 
 This function will return all supported locales and their properties as an array.
@@ -387,20 +384,6 @@ If you're supporting multiple locales in your project you will probably want to 
     @endforeach
 </ul>
 ```
-
-If you want to exclude current locale from the list, in the language selector.
-```
-<ul>
-    @foreach(LaravelLocalization::getSupportedLocales(true) as $localeCode => $properties)
-        <li>
-            <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-                {{ $properties['native'] }}
-            </a>
-        </li>
-    @endforeach
-</ul>
-```
-
 Here default language will be forced in getLocalizedURL() to be present in the URL even `hideDefaultLocaleInURL = true`.
 
 ## Translated Routes
@@ -474,7 +457,7 @@ return [
 ];
 ```
 
-Once files are saved, you can access to http://url/en/about , http://url/es/acerca , http://url/en/view/5 and http://url/es/ver/5 without any problem. The `getLanguageBar` function would work as desired and it will translate the routes to all translated languages (don't forget to add any new route to the translation file).
+Once files are saved, you can access to http://url/en/about , http://url/es/acerca , http://url/en/view/5 and http://url/es/ver/5 without any problem.
 
 ## Events
 

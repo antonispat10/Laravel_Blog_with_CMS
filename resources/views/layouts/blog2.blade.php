@@ -104,28 +104,20 @@
         <h4>Blog Categories</h4>
         <div class="row">
 
-            @foreach($categorys as $index => $category)
+            @foreach($categories as $index => $category)
 
-                <div class="col-lg-6">
+                <?php if ($index % 2 == 0){ ?>
+                <li class="col-md-5 btn btn-default " style="margin-top: 20px; margin-bottom:30px;">
+                    <a href="{{route('all_posts', $category->slug)}}">{{$category->name}}</a>
+                </li>
+                <?php } ?>
 
 
-                    <tbody>
-                    <?php if($index % 1 == 0){ ?>
-                    <tr>
-                        <a>{{$category->name}}</a>
-
-                    </tr>
-                </div>
-
-                <?php  }  else { ?>
-
-                <div class="col-lg-6">
-                    <ul class="list-unstyled">
-                        <li><a href="#">s{{$category->name}}</a></li>
-                    </ul>
-                </div>
-
-                <?php    }  ?>
+                <?php if ($index % 2 == 1){ ?>
+                <li class="col-md-5 btn btn-default" style="margin-top:20px; margin-left:20px; margin-bottom:30px;">
+                    <a href="{{route('all_posts', $category->slug)}}">{{$category->name}}</a>
+                </li>
+                <?php } ?>
 
 
             @endforeach
